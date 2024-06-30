@@ -90,12 +90,12 @@ $ ./calc
 			  Hence, it is very important to type "end", rather than stopping the 
 			  program forcefully. 
 
-			  However, if you forget to type "end", simply re-compile the program
-			  by repeating Step 5. Then, type "end" as a command once the user 
-			  asks you to input a command. This will ensure all message queues 
-			  are deleted successfully. 
+However, if you forget to type "end", simply re-compile the program
+by repeating Step 5. Then, type "end" as a command once the user 
+asks you to input a command. This will ensure all message queues 
+are deleted successfully. 
 
-			  Afterwards, if you want to run the program again, repeat steps 5-8. 
+Afterwards, if you want to run the program again, repeat steps 5-8. 
 
 
 Once you are finished with this application, you can type the following command in the terminal to clean up your files:
