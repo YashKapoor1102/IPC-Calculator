@@ -61,13 +61,16 @@ $ cd Lexicographic-Sort-Concurrency
 	$ make
 
 **Step 5:** To run the program, type the following command in the first terminal window:
+```
+$ ./user
+```
 
-	$ ./user
+It will then ask you to enter one out of the 7 commands listed above. However, before 
+entering a command, type the following in the second terminal window:
 
-	It will then ask you to enter one out of the 7 commands listed above. However, before 
-	entering a command, type the following in the second terminal window:
-
-	$ ./calc
+```
+$ ./calc
+```
 
 **Step 6:** To start using this program, type the "Insert" command to insert numbers one by one
 	to your set of numbers. Simply enter a number you want to add (must be an integer)
