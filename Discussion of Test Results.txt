@@ -1,0 +1,285 @@
+Name: Yash Kapoor
+
+Discussion of Test Results
+
+- I tested my program thoroughly by trying out every command multiple times to ensure it 
+works correctly. Also, I made sure my program was error-free by inputting several values and 
+ensuring my program would not crash. For example, when it asks the user to "Enter a number", the 
+user must only enter an integer. Otherwise, a message is displayed to the user, stating that 
+an integer must be entered.
+
+- Below are the data sets that I tested for each command:
+
+- Test Data Set #1 (Insert Command) -> 3 tests:
+
+1st insert:
+
+User: 
+
+Enter command: Insert
+Enter number: 3 
+
+Both the command and the number are then sent to the calculator (server) simultaneously.
+The calculator then displays:
+
+Calculator: 
+
+Numbers in your set are: 
+3 
+
+Subsequently, the calculator sends a message back to the user, stating that the insert
+operation is done:
+
+User: 
+Your number was added to the set of numbers!
+
+2nd insert:
+
+User: 
+
+Enter command: Insert
+Enter number: 10
+
+Both the command and the number are then sent to the calculator (server) simultaneously.
+The calculator then displays:
+
+Calculator: 
+
+Numbers in your set are: 
+3 10
+
+Subsequently, the calculator sends a message back to the user, stating that the insert
+operation is done:
+
+User: 
+Your number was added to the set of numbers!
+
+3rd insert: 
+
+User: 
+
+Enter command: Insert
+Enter number: 5
+
+Both the command and the number are then sent to the calculator (server) simultaneously.
+The calculator then displays:
+
+Calculator: 
+
+Numbers in your set are: 
+3 10 5
+
+Subsequently, the calculator sends a message back to the user, stating that the insert
+operation is done:
+
+User: 
+Your number was added to the set of numbers!
+
+- Test Data Set #2 (Delete Command) -> 1 Test:
+
+Assuming the set of numbers consists of [3, 10, 5, 10, 10], I am going to attempt to remove
+all occurrences of 10 from this set:
+
+User: 
+
+Enter command: Delete
+Enter number: 10
+
+Both the command and the number are then sent to the calculator (server) simultaneously.
+The calculator then displays:
+
+Calculator:
+
+Numbers in your set are: 
+3 5 
+
+Subsequently, the calculator sends a message back to the user, stating that the delete
+operation is done:
+
+User:
+Your number was deleted from the set of numbers!
+
+- Test Data Set #3 (Sum Command) -> 1 Test:
+
+Assuming the set of numbers consists of [3, 7, 5, 2, 10], I am going to attempt to use
+the sum command:
+
+User: 
+
+Enter command: Sum
+
+The command is sent to the calculator (server).
+The calculator then displays:
+
+Calculator:
+
+The sum of all existing numbers in the set of numbers is: 27
+
+Subsequently, the calculator sends a message back to the user, stating that the sum
+operation is done:
+
+User:
+The sum of all existing numbers in the stored set of numbers was computed!
+
+
+- Test Data Set #4 (Average Command) -> 1 Test:
+
+Assuming the set of numbers consists of [3, 7, 5, 2, 10], I am going to attempt to use
+the average command:
+
+User:
+
+Enter command: Average
+
+The command is sent to the calculator (server).
+The calculator then displays:
+
+Calculator:
+
+The average of all existing numbers in the set of numbers is: 5.400
+
+Subsequently, the calculator sends a message back to the user, stating that the average
+operation is done:
+
+User:
+The average of all existing numbers in the stored set of numbers was computed!
+
+
+- Test Data Set #5 (Min Command) -> 1 Test:
+
+Assuming the set of numbers consists of [3, 7, 5, 2, 10], I am going to attempt to use
+the min command:
+
+User:
+
+Enter command: Min
+
+The command is sent to the calculator (server).
+The calculator then displays:
+
+Calculator:
+
+The smallest number in the stored set of numbers is: 2
+
+Subsequently, the calculator sends a message back to the user, stating that the min
+operation is done:
+
+User:
+The smallest number in the stored set of numbers was found!
+
+
+- Test Data Set #6 (Median Command) -> 2 Tests:
+
+1st Test:
+Number of values in the set are odd. Set consists of [3, 7, 5, 2, 10]:
+
+User:
+
+Enter command: Median
+
+The command is sent to the calculator (server).
+The calculator then displays:
+
+Calculator:
+
+Sorted List is: 
+2 3 5 7 10 
+
+The median value in this set of numbers is: 5
+
+Subsequently, the calculator sends a message back to the user, stating that the median
+operation is done:
+
+User:
+The median value in this set of numbers was found!
+
+
+2nd Test:
+Number of values in the set are even. Set consists of [3, 7, 5, 2, 10, 3]:
+
+User:
+
+Enter command: Median
+
+The command is sent to the calculator (server).
+The calculator then displays:
+
+Calculator:
+
+Sorted List is: 
+2 3 3 5 7 10 
+
+The median values in this set of numbers are: 3 and 5
+
+Subsequently, the calculator sends a message back to the user, stating that the median
+operation is done:
+
+User:
+The median values in this set of numbers were found!
+
+
+- Test Data Set #7 (Time Command) -> 1 Test:
+
+This command gives the average time required to perform the operations tested above. All
+operations listed above must be tested first before using this command. Otherwise, this command
+will output an appropriate error message to the user, stating that all operations must be done.
+
+User:
+
+Enter command: Time
+
+The command is sent to the calculator (server).
+The calculator then displays:
+
+Calculator:
+
+The average time to perform the operations is:
+0.166667 micro sec
+
+Subsequently, the calculator sends a message back to the user, stating that the average
+time has been computed:
+
+User:
+
+The average time to perform all the operations has been calculated!
+
+After manually computing the results for the "Insert", "Delete", "Sum", "Average", "Min", 
+"Median", and "Time" commands, I can conclude that my program does the operations and
+sends the messages between the calculator and the user correctly. For example, after
+calculating the average for the set of [3, 7, 5, 2, 10] by doing: 
+
+(3 + 7 + 5 + 2 + 10) / 5 = 5.4
+
+I can clearly see that 5.4 is equivalent to the result that the calculator computed, which was
+5.400.
+
+In conclusion, by thoroughly testing my program with multiple data sets, I have ensured that
+it works the way it is supposed to.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

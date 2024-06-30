@@ -1,0 +1,36 @@
+Name: Yash Kapoor
+
+	Important Goals of my Design and Description of the Computation of Average Time
+
+In this project, I created a program that implements a calculator system using the
+client-server paradigm. I will describe the important goals of my design and give a 
+description of the computation of average time using point form:
+- I used two message queues. One for sending data from the user to the calculator and the 
+other one to send data from the calculator back to the user, indicating that the operation
+is done.
+- The user is responsible for entering a command. Once the command is entered and an argument
+associated with that command (if any) are sent to the calculator simultaneously. Then, 
+the calculator displays the result of that command (e.g., If average is entered, it computes and
+displays the average). Finally, a message is sent back to the user, telling them that the 
+calculator successfully finished the operation. If it fails to complete the operation, 
+it will send the appropriate error message to the user.
+- The user is allowed to insert up to 15 numbers as long as they are integers (negative, 0, 
+positive are all acceptable). Specifically, I declared an array of size 15; therefore, the
+user can insert at most 15 integers in their set of numbers. 
+- When the user enters invalid input, exception handling is implemented into the design to 
+account for that. 
+- To compute the average time it takes for processes to perform the operations, I found the
+time it requires to perform the operations for each command by using gettimeofday(&start, NULL) and
+gettimeofday(&end, NULL). Then, I subtracted the end time by the start time to compute 
+the total time it takes for each operation to finish in microseconds. I stored the total 
+time it takes for these operations to complete in 6 separate variables (one for each command). 
+Afterwards, I introduced variables and changed them to "1" whenever a command is entered.
+This allowed me to check if all commands have been entered, so the "Time" command can be 
+used to compute the average time. Specifically, to compute the average time, I simply added each
+variable together and divided that result by the number of total operations (which are equal
+to 6 -> Insert, Delete, Sum, Average, Min, and Median). The user must test all these operations
+first. Then, they can use this "Time" command to compute the average time for all operations.
+
+
+
+

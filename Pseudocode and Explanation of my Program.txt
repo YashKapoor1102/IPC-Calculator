@@ -1,0 +1,587 @@
+Name: Yash Kapoor
+
+					Pseudocode and Discussion
+
+Pseudocode of User.c:
+
+variable_declarations() {
+
+	struct my_msg_st {
+		long int my_msg_type;
+
+		int number;
+		char some_text[MAX_TEXT];
+
+	};
+
+	int running;
+
+	struct my_msg_st some_data;
+
+	int user_message;
+	int calculator_message;
+
+	char buffer[BUFSIZ];	
+	int inserted_number;
+	int deleted_number;
+
+}
+
+initialization_code() {
+
+	user_message = create_user_message_queue;
+	calculator_message = obtain_calculator_message;
+
+	running = true;
+
+	inserted_number = 0;
+	deleted_number = 0;
+
+	void send_message_to_calculator(some_data);
+	void receive_message_from_calculator(some_data);
+	int handle_user_input();
+
+}
+
+method_declarations() {
+
+	void send_message(struct my_msg_st some_data) {
+		if (unable_to_send_message) {
+			print("error occurred);
+		}
+	}
+
+	void receive_message(struct my_msg_st some_data) {
+		if (unable_to_receive_message) {
+			print("error occurred);		
+		}
+
+		print(some_data.some_text);
+	}
+
+	int handle_user_input() {
+		
+		while(integer_value_not_entered) {
+
+			int user_input = input("Enter a number: ");
+			String string_value;
+			float float_value;
+
+			if(user_input == string_value) {
+				print("You must enter an integer value");
+			}
+			else if (user_input == float_value) {
+				print("You must enter an integer value");
+			}
+			else {
+				// valid input
+				return user_input;
+			}
+		}
+
+	}
+
+	int main() {
+		while(running) {
+
+			String user_input = input("Enter command: "); 
+
+			for(int lowercase = 0; lowercase < user_input.size(); lowercase++) 	{
+				// converting user input to lowercase
+				user_input[lowercase] = user_input[lowercase].tolower();
+			}
+				
+			buffer = user_input;
+			// copying user_input into buffer
+
+			some_data.some_text = buffer;
+
+			if (buffer == "end") {
+				// ending the "user" process once the user has typed "end"
+				running = false;
+				// step out of while-loop and end the program
+
+				send_message_to_calculator(some_data);
+				
+			}
+			else if (buffer == "time") {
+
+				// sending command to the calculator
+				send_message_to_calculator(some_data);
+				
+				receive_message_from_calculator(some_data);
+
+			}
+			else if (buffer == "insert") {
+
+				inserted_number = handle_user_input();
+
+				some_data.number = inserted_number;
+
+				send_message_to_calculator(some_data);
+				
+				receive_message_from_calculator(some_data);
+				
+				
+			}
+
+			else if (buffer == "delete") {
+
+				deleted_number = handle_user_input();
+				
+				some_data.number = deleted_number;
+
+				send_message_to_calculator(some_data);
+				
+				receive_message_from_calculator(some_data);
+				
+
+			}
+			else if (buffer == "sum") {
+
+				send_message_to_calculator(some_data);
+				
+				receive_message_from_calculator(some_data);
+			}
+
+			else if (buffer == "average") {
+
+				send_message_to_calculator(some_data);
+				
+				receive_message_from_calculator(some_data);
+
+			}
+			else if (buffer == "min") {
+
+				send_message_to_calculator(some_data);
+				
+				receive_message_from_calculator(some_data);
+			}
+
+			else if (buffer == "median") {
+
+				send_message_to_calculator(some_data);
+				
+				receive_message_from_calculator(some_data);
+			}
+			else {
+				print("You must enter a valid command! Try again!");
+			}
+
+		}
+	}
+}
+
+
+
+Pseucode of Calculator.c: 
+
+variable_declarations() {
+
+	struct my_msg_st {
+		long int my_msg_type;
+
+		int number;
+
+		char some_text[BUFSIZ];
+	};
+
+	struct median_holder {
+		int even_values;
+		int odd_values;
+
+		int median1;
+		int median2;
+	};
+
+	int running;
+
+	int user_message;
+	int calculator_message;
+
+	struct my_msg_st some_data;
+	struct timeval start, end;
+
+	int count, numbers[15], MAX_SIZE_OF_ARRAY;
+	
+	double time_insert, time_delete, time_sum, time_avg, time_min, time_median;
+
+}
+
+initialization_code() {
+
+	void print_array(array, int size_of_array);
+	int insert_value(array, int size_of_array, int number_to_be_inserted);
+	int delete_value(array, int size_of_array, int number_to_be_removed);
+	int sum_value(array, int size_of_array);
+	void sort_array(int array, int size_of_array);
+	struct median_holder find_median(array, int size_of_array);
+	
+	running = true;
+
+	count = 0;
+	// count is the current array size
+
+	MAX_SIZE_OF_ARRAY = 15;
+
+	calculator_message = create_calculator_message_queue;
+	user_message = obtain_user_message;
+
+	int inserted = false, deleted = false, added = false, averaged = false, found_min = false, found_median = false;
+	int done_all_operations = 0;
+
+}
+	
+method_declarations() {
+
+	int insert_val(array, int position_inserted, int number_inserted) {
+		// value inserted after the current last number in the array
+
+		numbers[position_inserted] = number_inserted;
+		size = size + 1;
+
+		return size;
+	}
+
+	int delete_val(array, int size_of_array, int number_removed) {
+
+		int total_size = 0;
+
+		// all occurrences of the number are deleted after iterating through array
+		while(not_reached_end_of_array) {
+			if(numbers[position] != number_removed) {
+				add all elements to array besides number_removed
+			}
+		}
+
+		return total_size;
+	}
+
+	int sum_value(array, int size_of_array) {
+		int sum = 0;
+
+		// Adding all the integers in the array together
+		for(int i = 0; i < size_of_array; i++) {
+			sum = sum + each_element_in_array[i];
+		}
+
+		return sum;
+	}
+
+	int min_value(int array, int size_of_array) {
+		int min = first_element_in_array;
+			
+		// finding the minimum value in the array
+		for(int i = 1; i < size_of_array; i++) {
+			if (min > any_element_in_array[i]) {
+				min = any_element_in_array[i];
+			}
+		}
+
+		return min;
+	}
+
+	void sort_array(array, int size_of_array) {
+		int i = 0, j = 0, temp = 0;
+
+		// sorting the array in non-decreasing order
+		for(i = 0; i < size_of_array; i++) {
+			for(j = 0; j < (size_of_array - 1); j++) {
+				if(numbers[j] > numbers[j + 1]) {
+				// swap numbers if value at index j is greater than value at index j + 1
+					swap numbers[j] and numbers[j + 1]
+
+				}
+			}
+		}
+
+	}
+
+	struct median_holder find_median(array, int size_of_array) {
+
+		struct median_holder mh;
+
+		mh.even_values = 0;
+		mh.odd_values = 0;
+
+		if(set_contains_odd_values) {
+			mh.even_values = 1;
+			// even number of values
+
+			mh.median1 = numbers[(size_of_array - 1) / 2];
+			mh.median2 = numbers[size_of_array / 2];
+		}
+		else {
+			mh.odd_values = 1;
+			// odd number of values
+
+			mh.median1 = numbers[size_of_array / 2];
+		}
+
+		return mh;
+
+	}
+
+	int main() {
+
+		while(running) {
+
+			// messages retrieved from queue
+			if (unable_to_receive_message) {
+				print("error occurred);
+			}
+
+			if (some_data.some_text == "end") {
+				running = false;
+			}
+
+			else if (some_data.some_text == "time") {
+
+				if(done_all_operations) {
+					double average_time = (time_insert + time_delete + time_sum + time_avg + time_min + time_median) / 6.0;
+
+					print("\nThe average time to perform the operations is: " + average_time + " micro sec");
+
+					some_data.some_text = "The average time to perform all the operations has been calculated!";
+		
+				}
+				else {
+	
+					some_data.some_text = "All operations must be done before attempting to use this command.";
+				}
+			}
+
+			else if (some_data.some_text == "insert") {
+
+				if(count != MAX_SIZE) {
+
+					inserted = true;
+			
+					int number_to_insert = some_data.number;
+
+					double start_time = gettimeofday(&start, NULL);
+					count = insert_val(numbers, count, number_to_insert);
+					double end_time = gettimeofday(&end, NULL);
+
+					print("\nNumbers in your set are: \n");
+					print_array(numbers, count);
+				
+					some_data.some_text = "Your number was added to the set of numbers!";
+				
+				}
+				else {
+					some_data.some_text = "Your number was not added to the set of numbers because your set is only allowed to have up to 15 numbers!";
+
+				}
+
+				// time it takes to insert an integer in the array
+				time_insert = end_time - start_time;
+
+			}
+
+			else if (some_data.some_text == "delete") {
+
+				int number_to_delete = some_data.number;
+				
+				int temp = count;
+
+				double start_time = gettimeofday(&start, NULL);
+				count = delete_val(numbers, temp, number_to_delete);
+				double end_time = gettimeofday(&end, NULL);
+
+				// time it takes to delete an integer from the array
+				time_delete = end_time - start_time;
+
+				if (count != 0) {
+					print("\nNumbers in your set are: \n");
+					print_array(numbers, count);
+				}
+				else {
+					print("\nThe set of numbers is empty.\n");
+				}
+
+				if (temp == count) {
+					// size has not changed, so element not found
+					some_data.some_text = "Your number was not found in the set of numbers!";
+				}
+				else {
+					// size changed, so element found and deleted
+					deleted = true;
+
+					some_data.some_text = "Your number was deleted from the set of numbers!";
+				
+				}
+				
+			}
+
+			else if (some_data.some_text == "sum") {
+
+				double start_time = gettimeofday(&start, NULL);
+				int sum = sum_value(numbers, count);
+				double end_time = gettimeofday(&end, NULL);
+
+				// time it takes to sum all the integers in the array
+				time_sum = end_time - start_time;
+
+				if(count != 0) {
+
+					added = true;
+
+					print("\nThe sum of all existing numbers in the set of numbers is: " + sum); 
+
+					some_data.some_text = "The sum of all existing numbers in the stored set of numbers was computed!";
+
+				}
+				else {
+					some_data.some_text = "You have not added any numbers in your array!";
+				}
+		
+			}
+			else if (some_data.some_text == "average") {
+
+				double start_time = gettimeofday(&start, NULL);
+				float avg = (float) sum_value(numbers, count) / (float) count;
+				double end_time = gettimeofday(&end, NULL);
+
+				// time it takes to find the average of all integers in the array
+				time_avg = end_time - start_time;
+
+				if(count != 0) {
+					averaged = true;
+
+					print("\nThe average of all existing numbers in the set of numbers is: " + round(avg)); 
+
+					some_data.some_text = "The average of all existing numbers in the stored set of numbers was computed!";
+
+				}
+
+				else {
+
+					some_data.some_text = "You have not added any numbers in your array!";
+					
+				}
+
+			}
+
+			else if (some_data.some_text == "min") {
+				
+				double start_time = gettimeofday(&start, NULL);
+				int min = min_value(numbers, count);
+				double end_time = gettimeofday(&end, NULL);
+
+				// time it takes to find the minimum value in the array
+				time_min = end_time - start_time;
+
+				if(count != 0) {
+
+					found_min = true;
+
+					print("\nThe smallest number in the stored set of numbers is: %d", min); 
+					
+
+					some_data.some_text = "The smallest number in the stored set of numbers was found!";
+					
+				}
+				else {
+					some_data.some_text = "You have not added any numbers in your array!";
+				}
+
+			}
+
+			else {
+				// calculate median
+		
+				double start_time = gettimeofday(&start, NULL);
+				sort_array(numbers, count);
+				struct median_holder mh = find_median(numbers, count);
+				double end_time = gettimeofday(&end, NULL);
+				
+				time_median = end_time - start_time;
+
+				if(count != 0 and set_contains_even_values) {
+					// array contains even number of elements and median found
+
+					found_median = true;	
+
+					print("\nSorted List is: \n");
+					print_array(numbers, count);
+
+					print("\nThe median values in this set of numbers are: " + mh.median1 + " " + mh.median2); 
+
+					some_data.some_text = "The median values in this set of numbers were found!";
+
+				}
+				else if (count != 0 && set_contains_odd_values) {
+					// array contains odd number of elements and median found
+
+					found_median = true;
+
+					print("\nSorted List is: \n");
+					print_array(numbers, count);
+
+					print("\nThe median value in this set of numbers is: " + mh.median1);
+
+					some_data.some_text = "The median value in this set of numbers was found!";
+
+				}
+				else {
+
+					some_data.some_text = "You have not added any numbers in your array!";
+					
+				}
+			}
+
+			// sending an appropriate message back to the user based on the
+			// command they entered
+			if (unable_to_send_message) {
+				print("error occurred);
+			}
+
+			if(inserted and deleted and added and averaged and found_min and found_median) 		
+			{
+				done_all_operations = true;
+			}
+		
+		}
+
+		if (unable_to_delete_user_message_queue) {
+			print("error occurred);
+		}
+
+		if (unable_to_delete_calculator_message_queue) {
+			print("error occurred);
+		}
+	}
+
+}
+
+Discussion of how this program solves the problem, allowing two processes to communicate
+with one another:
+
+This program allows messages to be sent between the user and the calculator. It allows 
+the calculator and user to communicate with one another by using two message queues. Specifically,
+a message queue called user_message is created in "User" and another message queue called 
+calculator_message is created in "Calculator". The user sends a message to the calculator
+by putting it in the user_message queue. Then, the calculator uses a function to retrieve
+the contents of user_message. Once it has access to the message queue, it uses another
+function to receive messages after the user sends them. Once it knows the exact command 
+the user sent, it can perform calculations with that specific operation. After performing
+calculations, it must send an appropriate response back to the user. To do this, another
+message queue was created called calculator_message in "Calculator". The calculator
+sends a response back to the user by putting it in the calculator_message queue. Then, the 
+user uses a function to retrieve the contents of calculator_message. Once it has access
+to the message queue, it uses another function to receive messages after the 
+calculator sends them. Then, the user program prints the contents to the user of the message 
+that the calculator sent.
+
+
+
+
+
+
+
+
+		
+	
+	
+
