@@ -13,20 +13,19 @@ the user.
 
 There are a total of 8 commands that the user can enter, which the calculator deals with:
 
-**Insert:** Inserts an integer in the array
-**Delete:** Deletes an integer from the array
-**Sum:** Adds all the integers in an array together and returns the result
-**Average:** Finds the average of all the integers in the array and returns the result
-**Min:** Finds and returns the minimum integer in the array
+**Insert:** Inserts an integer in the array<br>
+**Delete:** Deletes an integer from the array<br>
+**Sum:** Adds all the integers in an array together and returns the result<br>
+**Average:** Finds the average of all the integers in the array and returns the result<br>
+**Min:** Finds and returns the minimum integer in the array<br>
 **Median:** Sorts the array in non-decreasing order and returns two values in the middle 
 	if the number of values in the set are even. Otherwise, returns one value if 
-	the number of values in the set are odd.
+	the number of values in the set are odd.<br>
 **Time:** You must type all those commands listed above first for you to use this command. This is 
       responsible for computing the average time required to perform the operations listed
-      above. 
+      above.<br>
 **End:** Deletes the message queues and exits the program. This must be entered after you are 
      done using this program or before you re-run it. 
-
   
 This program is made up of two files:<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;**User.c**: 		Client process: responsible for sending commands to the calculator<br>
